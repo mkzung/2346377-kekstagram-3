@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="58.875" height="51.875" viewBox="0 0 58.875 51.875">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffe753;
+        fill-rule: evenodd;
+      }
+
+      .cls-2, .cls-3 {
+        font-size: 14px;
+      }
+
+      .cls-3 {
+        fill: #3c3614;
+        font-family: "OpenSans-Semibold";
+      }
+    </style>
+  </defs>
+  <g>
+    <path d="M55.633,51.862 C52.914,51.862 5.199,51.862 3.324,51.862 C0.892,51.862 -0.918,49.346 0.505,46.860 C1.644,44.867 24.640,5.045 26.607,1.647 C27.899,-0.585 30.980,-0.548 32.274,1.647 C33.716,4.093 56.829,44.067 58.435,46.962 C59.613,49.081 58.312,51.862 55.633,51.862 Z" class="cls-1"/>
+    <text transform="translate(23.97 44.91) scale(2.89)" class="cls-2"><tspan class="cls-3">!</tspan></text>
+  </g>
+</svg>
