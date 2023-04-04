@@ -17,8 +17,10 @@ const createPicture = function (data) {
 };
 
 export const drawPictures = function (data) {
-  for (const elem in data) {
-    const newPic = createPicture(elem);
-    pictures.appendChild(newPic);
+  const res = new DocumentFragment();
+  for (let i = 0; i < data.length; i++) {
+    const newPic = createPicture(data[i]);
+    res.append(newPic);
+    pictures.append(res);
   }
 };
