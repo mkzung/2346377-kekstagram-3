@@ -1,9 +1,11 @@
-import { generateContent } from './data.js';
-import { drawPictures } from './draw.js';
-import './form.js';
-import './validate.js';
+import './drawThumbnails.js';
+import './bigPicture.js';
+import './validetion.js';
+import './loaderForm.js';
 import './addEffect.js';
+import {drawThumbnails} from './drawThumbnails.js';
+import {showAlert} from './util.js';
+import {getData} from './api.js';
 
 
-const content = generateContent(25);
-drawPictures(content);
+getData(drawThumbnails,showAlert);
