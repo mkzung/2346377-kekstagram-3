@@ -9,3 +9,7 @@ export function checkCommentLength(string, requiredLength) {
     return false;
   }
 }
+
+export function checkStr(str, maxLen) {
+  return maxLen >= String(str).length;
+}
