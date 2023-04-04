@@ -1,6 +1,8 @@
-import {generateContent} from './data.js';
+import { generateContent } from './data.js';
+import { drawPictures } from './draw.js';
+import './form.js';
+import './validate.js';
 
-const button = document.querySelector('.img-upload__label');
-button.onclick = function() {
-  generateContent(25);
-};
+
+const content = generateContent(25);
+drawPictures(content);
