@@ -1,29 +1,33 @@
-import {checkStr} from './util.js';
+import {sendData} from './load.js';
+import {closeOverlay} from './form.js';
+import {createSystemMessage} from './util.js';
 
-const form = document.querySelector('.img-upload__form');
-const reg = new RegExp('^#[а-яА-ЯA-Za-zёЁ0-9]{1,17}$');
+const submitButton = document.querySelector('#upload-submit');
+const form = document.querySelector('#upload-select-image');
+
 const pristine = new Pristine(form, {
-  classTo: 'img-upload__text',
-  errorClass: 'form__item--invalid',
-  successClass: 'form__item--valid',
-  errorTextParent: 'img-upload__text',
-  errorTextTag: 'span',
-  errorTextClass: 'form__error',
+  classTo: 'img-upload__field-wrapper',
+  errorTextParent: 'img-upload__field-wrapper',
+  errorTextClass: 'img-upload__error-text'
 });
 
-pristine.addValidator(document.querySelector('.text__hashtags'), validateHashtag, 'Хэштег не должен привышать 17 символов и обязан начинаться с решётки!');
-pristine.addValidator(document.querySelector('.text__description'), validateComment, 'Длина комментария от 20 до 140 символов!');
-
-function validateHashtag(element) {
-  return reg.test(element) || checkStr(element, 0);
-}
-
-function validateComment(element) {
-  return !checkStr(element, 19) && checkStr(element, 140);
-}
-
 form.addEventListener('submit', (evt) => {
-  if (!pristine.validate()) {
-    evt.preventDefault();
+  evt.preventDefault();
+  const isValid = pristine.validate();
+  if (isValid) {
+    submitButton.disabled = true;
+    sendData(
+      () => {
+        closeOverlay(false);
+        createSystemMessage('success');
+        submitButton.disabled = false;
+      },
+      () => {
+        closeOverlay(true);
+        createSystemMessage('error');
+        submitButton.disabled = false;
+      },
+      new FormData(evt.target),
+    );
   }
 });

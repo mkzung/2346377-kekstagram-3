@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="nouislider/nouislider.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="nouislider/nouislider.css">
   <title>Кекстаграм</title>
 </head>
 
 <body>
-
   <main>
 
     <!-- Фильтрация изображений от других пользователей -->
@@ -32,10 +31,7 @@
       <section class="img-upload">
         <div class="img-upload__wrapper">
           <h2 class="img-upload__title  visually-hidden">Загрузка фотографии</h2>
-
-          <form class="img-upload__form" id="upload-select-image" action="https://26.javascript.pages.academy/kekstagram"
-                method="post" enctype="multipart/form-data" autocomplete="off">
-
+          <form class="img-upload__form" id="upload-select-image" method="post" enctype="multipart/form-data" action="https://27.javascript.pages.academy/kekstagram-simple" autocomplete="off">
             <!-- Изначальное состояние поля для загрузки изображения -->
             <fieldset class="img-upload__start">
               <input type="file" id="upload-file" class="img-upload__input  visually-hidden" name="filename" required>
@@ -123,7 +119,11 @@
                     <input class="text__hashtags" name="hashtags" placeholder="#ХэшТег">
                   </div>
                   <div class="img-upload__field-wrapper">
-                    <textarea class="text__description" name="description" placeholder="Ваш комментарий..." maxlength="140"></textarea>
+                    <textarea class="text__description" name="description" placeholder="Ваш комментарий..." required
+                    minlength="20" maxlength="140"
+                    data-pristine-required-message="Обязательное поле"
+                    data-pristine-minlength-message="Минимальная длина комментария - 20 символов"
+                    data-pristine-maxlength-message="Максимальная длина комментария - 140 символов"></textarea>
                   </div>
                 </fieldset>
 
@@ -235,9 +235,8 @@
   <template id="messages">
     <div class="img-upload__message  img-upload__message--loading">Загружаем...</div>
   </template>
-
-  <script src="pristine/pristine.min.js"></script>
+  <script type="module" src="js/main.js"></script>
   <script src="nouislider/nouislider.js"></script>
-  <script src="js/main.js" type="module"></script>
+  <script src="pristine/pristine.min.js"></script>
 </body>
 </html>

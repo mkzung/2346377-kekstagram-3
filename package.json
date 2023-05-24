@@ -1,14 +1,15 @@
 {
+  "type": "module",
   "name": "kekstagram",
   "version": "26.0.0",
   "private": true,
   "description": "Личный проект «Кекстаграм (простой)» от HTML Academy",
   "repository": {
     "type": "git",
-    "url": "git@github.com:htmlacademy-univer-javascript-1/2346377-kekstagram-3.git"
+    "url": "git@github.com:htmlacademy-univer-javascript-1/2346039-kekstagram-3.git"
   },
   "bugs": {
-    "url": "https://github.com/htmlacademy-univer-javascript-1/2346377-kekstagram-3/issues"
+    "url": "https://github.com/htmlacademy-univer-javascript-1/2346039-kekstagram-3/issues"
   },
   "devDependencies": {
     "browser-sync": "2.27.10",

@@ -1,11 +1,8 @@
-import './drawThumbnails.js';
-import './bigPicture.js';
-import './validetion.js';
-import './loaderForm.js';
-import './addEffect.js';
-import {drawThumbnails} from './drawThumbnails.js';
-import {showAlert} from './util.js';
-import {getData} from './api.js';
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
+import { getData } from './load.js';
+import { renderPhotos } from './render.js';
+import { showAlert } from './util.js';
+import './validate.js';
 
-
-getData(drawThumbnails,showAlert);
+getData(renderPhotos, showAlert);

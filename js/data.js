@@ -1,20 +1,48 @@
-import {getRandomInt} from './util.js';
+const chrome = {
+  name: 'chrome',
+  filter: 'grayscale',
+  min: 0,
+  max: 1,
+  step: 0.1,
+  start: 1,
+};
 
-export function generateContent(size) {
-  const content = [];
-  for(let i = 0; i < size - 1; i++) {
-    content[i] = generateObj(i + 1);
-  }
-  return content;
-}
+const sepia = {
+  name: 'sepia',
+  filter: 'sepia',
+  min: 0,
+  max: 1,
+  step: 0.1,
+  start: 1,
+};
 
-function generateObj(id) {
-  const newObj = {
-    id: id,
-    url: `photos/${id}.jpg`,
-    description: '',
-    likes: getRandomInt(15, 200),
-    comments: getRandomInt(0, 200)
-  };
-  return newObj;
-}
+const marvin = {
+  name: 'marvin',
+  filter: 'invert',
+  min: 0,
+  max: 100,
+  step: 1,
+  start: 100,
+  symbol: '%',
+};
+
+const phobos = {
+  name: 'phobos',
+  filter: 'blur',
+  min: 0,
+  max: 3,
+  step: 0.1,
+  start: 3,
+  symbol: 'px',
+};
+
+const heat = {
+  name: 'heat',
+  filter: 'brightness',
+  min: 1,
+  max: 3,
+  step: 0.1,
+  start: 3,
+};
+
+export const settings = [chrome, sepia, marvin, phobos, heat];

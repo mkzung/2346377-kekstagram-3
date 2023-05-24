@@ -1,43 +1,43 @@
-const uploadPicForm = document.querySelector('.img-upload__form');
-const overlay = uploadPicForm.querySelector('.img-upload__overlay');
+import {resetScale} from './scale.js';
+import {resetEffects} from './effect.js';
 
-const closeOnButton = (evt) => {
+const imgUpload = document.querySelector('#upload-file');
+const imgUploadOverlay = document.querySelector('.img-upload__overlay');
+const body = document.querySelector('body');
+const closeButton = imgUploadOverlay.querySelector('#upload-cancel');
+const hashtag = document.querySelector('.text__hashtags');
+const description = document.querySelector('.text__description');
+
+const onPopupEscKeydown = (evt) => {
   if (evt.key === 'Escape') {
     evt.preventDefault();
-    closeWindow();
+    closeOverlay(false);
   }
 };
 
-function openWindow() {
-  overlay.classList.remove('hidden');
-  document.body.classList.add('modal-open');
-  document.addEventListener('keydown', closeOnButton);
+function openOverlay () {
+  imgUploadOverlay.classList.remove('hidden');
+  body.classList.add('modal-open');
+  document.addEventListener('keydown', onPopupEscKeydown);
 }
 
-function closeWindow() {
-  overlay.classList.add('hidden');
-  document.body.classList.remove('modal-open');
-  document.removeEventListener('keydown', closeOnButton);
-  cleanForm();
+export function closeOverlay (saveData) {
+  imgUploadOverlay.classList.add('hidden');
+  body.classList.remove('modal-open');
+  document.removeEventListener('keydown', onPopupEscKeydown);
+  imgUpload.value = '';
+  if (!saveData) {
+    resetScale();
+    resetEffects();
+    hashtag.value = '';
+    description.value = '';
+  }
 }
 
-uploadPicForm.addEventListener('change', (evt) => {
-  evt.preventDefault();
-
-  openWindow();
+imgUpload.addEventListener('change', () => {
+  openOverlay();
 });
 
-const closeButton = uploadPicForm.querySelector('#upload-cancel');
-
-closeButton.addEventListener('click', (evt) => {
-  evt.preventDefault();
-
-  closeWindow();
+closeButton.addEventListener('click', () => {
+  closeOverlay(false);
 });
-
-
-function cleanForm() {
-  document.querySelector('#upload-file').value = '';
-  document.querySelector('.text__hashtags').value = '';
-  document.querySelector('.text__description').value = '';
-}
